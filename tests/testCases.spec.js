@@ -18,37 +18,128 @@ const CONFIG = {
 // Test Data - Minimal Positive & Negative Test Cases
 const TEST_DATA = {
   positive: [
-    {
-      tcId: 'Pos_Fun_001',
-      name: 'Short daily greeting question',
-      input: 'adha dhavasa kohomadha?',
-      expected: 'අද දවස කොහොමද?'
-    },
-    {
-      tcId: 'Pos_Fun_002',
-      name: 'Simple food request',
-      input: 'mata kanna monahari dhenna',
-      expected: 'මට කන්න මොනහරි දෙන්න'
-    }
-  ],
-  negative: [
     // {
-    //   tcId: 'Neg_Fun_001',
-    //   name: 'Missing space between words',
-    //   input: 'mamagedharainnee',
-    //   expected: 'මම ගෙදර ඉන්නේ'
+    //   tcId: 'Pos_Fun_001',
+    //   name: 'Short daily greeting question',
+    //   input: 'adha dhavasa kohomadha?',
+    //   expected: 'අද දවස කොහොමද?'
     // },
     // {
-    //   tcId: 'Neg_Fun_002',
-    //   name: 'Joined compound words',
-    //   input: 'apipassekathakaramu',
-    //   expected: 'අපි පස්සේ කතා කරමු'
-    // }
+    //   tcId: 'Pos_Fun_002',
+    //   name: 'Simple food request',
+    //   input: 'mata kanna monahari dhenna',
+    //   expected: 'මට කන්න මොනහරි දෙන්න'
+    // },
+    // {
+    //   tcId: 'Pos_Fun_003',
+    //   name: 'Responses',
+    //   input: 'hari, mama oyaata udhavu karannam',
+    //   expected: 'හරි, මම ඔයාට උදවු කරන්නම්'
+    // },
+    // {
+    //   tcId: 'Pos_Fun_004',
+    //   name: 'Negative forms',
+    //   input: 'ee kathaava hari lassanayi. oyaa eeka hariyata kiyavalaa naehae.',
+    //   expected: 'ඒ කතාව හරි ලස්සනයි. ඔයා ඒක හරියට කියවලා නැහැ.'
+    // },
+    // {
+    //   tcId: 'Pos_Fun_005',
+    //   name: 'Common greeting',
+    //   input: 'aayuboovan! obava saadharayen vaedasatahanata piLigannavaa',
+    //   expected: 'ආයුබෝවන්! ඔබව සාදරයෙන් වැඩසටහනට පිළිගන්නවා'
+    // },
+    // {
+    //   tcId: 'Pos_Fun_006',
+    //   name: 'Paragraph-style input',
+    //   input: 'adha dhavasama mama campus vaeda karala gedhara aavaa. loku mahansiyak thibuna nisaa podi nidahasak hoyanna hithunaa. ammaa tea ekak hadhala dhunnaa, ehema velavata hithata loku saenasiimak dhaenenavaa. raee venakota podi music ekak ahagena paadam karanna try kalaa. eeka saarThakayi. paadam tika hariyata karaganna puluvan unaa, eka nisaa hithata loku sathutak dhaenenavaa. adha dhavasa hari lassanayi kiyala hithunaa. mama adha dhavasata sthuuthivantha venavaa.',
+    //   expected: 'අද දවසම මම campus වැඩ කරල ගෙදර ආවා. ලොකු මහන්සියක් තිබුන නිසා පොඩි නිඩහසක් හොයන්න හිතුනා. අම්මා tea එකක් හදල දුන්නා, එහෙම වෙලවට හිතට ලොකු සැනසීමක් දැනෙනවා. රෑ වෙනකොට පොඩි music එකක් අහගෙන පාඩම් කරන්න try කලා. ඒක සාර්ථකයි. පාඩම් ටික හරියට කරගන්න පුලුවන් උනා, එක නිසා හිතට ලොකු සතුටක් දැනෙනවා. අද දවස හරි ලස්සනයි කියල හිතුනා. මම අද දවසට ස්තූතිවන්ත වෙනවා.'
+    // },
+    // {
+    //   tcId: 'Pos_Fun_007',
+    //   name: 'Singular/plural usage and pronoun variations',
+    //   input: 'mama gedhara yanna hadhannee. Oyath enavadha apee gedhara?',
+    //   expected: 'මම ගෙදර යන්න හදන්නේ. ඔයත් එනවද අපේ ගෙදර?'
+    // },
+    // {
+    //   tcId: 'Pos_Fun_008',
+    //   name: 'Tense variations-Future',
+    //   input: 'api labana sathiyee gaallee yanna inne',
+    //   expected: 'අපි ලබන සතියේ ගාල්ලේ යන්න ඉන්නේ'
+    // },
+    // {
+    //   tcId: 'Pos_Fun_009',
+    //   name: 'Tense variations-Past',
+    //   input: 'mama iiyee vandhanaa gamanak giyaa',
+    //   expected: 'මම ඊයේ වන්දනා ගමනක් ගියා'
+    // },
+    // {
+    //   tcId: 'Pos_Fun_010',
+    //   name: 'Tense variations-Present',
+    //   input: 'mama dhaen kana gaman inne.',
+    //   expected: 'මම දැන් කන ගමන් ඉන්නේ.'
+    // },
+    
+  ],
+  negative: [
+    {
+      tcId: 'Neg_Fun_001',
+      name: 'Missing space between words',
+      input: 'mamakadeeinnee',
+      expected: 'මම කඩේ ඉන්නේ'
+    },
+    {
+      tcId: 'Neg_Fun_002',
+      name: 'Joined compound words',
+      input: 'apimeegaenapassekathakaramu',
+      expected: 'අපි මේ ගැන පස්සේ කතා කරමු'
+    },
+    {
+    tcId: 'Neg_Fun_003',
+    name: 'Line break in sentence',
+    input: 'api game\ngahamu',
+    expected: 'අපි game ගහමු',
+  },
+  {
+    tcId: 'Neg_Fun_004',
+    name: 'Abbreviation in instruction',
+    input: 'mata ASAP oyagen wedak kara ganna one',
+    expected: 'මට ASAP ඔයගෙන් වැඩක් කර ගන්න ඕනෙ',
+  },
+  {
+    tcId: 'Neg_Fun_005',
+    name: 'Extra spaces in request',
+    input: 'mama     ammaava    pudhuma     kaLaa',
+    expected: 'මම අම්මාව පුදුම කළා',
+  },
+  {
+    tcId: 'Neg_Fun_006',
+    name: 'Missing space in greeting',
+    input: 'subaudeasanak',
+    expected: 'සුබ උදෑසනක්',
+  },
+    {
+    tcId: 'Neg_Fun_007',
+    name: 'Combined words with numbers',
+    input: 'mama keama123 kanawa',
+    expected: 'මම කෑම කනවා',
+  },
+  {
+    tcId: 'Neg_Fun_008',
+    name: 'Slang + typo',
+    input: 'bro eka suparne',
+    expected: 'bro ඒක සුපර්නෙ',
+  },
+   {
+    tcId: 'Neg_Fun_010',
+    name: 'Extra punctuation',
+    input: 'oya??kohedha!!!inne',
+    expected: 'ඔයා කොහෙද ඉන්නේ',
+  },
   ]
 };
 
 // Helper Functions
-class TranslatorPage {
+class TranslatorPagme {
   constructor(page) {
     this.page = page;
   }
@@ -93,7 +184,7 @@ class TranslatorPage {
         });
         return output !== undefined;
       },
-      { timeout: 90000 }
+      { timeout: 24000 }
     );
     await this.page.waitForTimeout(CONFIG.timeouts.translation);
   }
