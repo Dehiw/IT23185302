@@ -10,19 +10,19 @@ Prerequisites
 
 Setup Instructions
 - Clone the repository
-    git clone <your-repository-link>
-    cd <repository-folder>
+    `git clone <your-repository-link>`
+    `cd <repository-folder>`
 
 - Install Playwright and project dependencies
-    npm init playwright@latest
+    `npm init playwright@latest`
 
 - Run tests
   Run all tests using Chromium with a single worker:
-    npx playwright test --workers=1 --project=chromium
+    `npx playwright test --workers=1 --project=chromium`
 
   Alternative test commands
   If the above command does not work, you can run tests using:
-    npx playwright test
+    `npx playwright test`
 
 - View HTML test reports
-    npx playwright show-report
+    `npx playwright show-report`
